@@ -14,18 +14,11 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
-
     @PostMapping("/add")
     public Product addProduct(@RequestBody Product product) {
         Product returnProduct =  productService.saveProduct(product);
         return returnProduct;
     }
-
-//    @PostMapping("/addProducts")
-//    public List<Product> addProducts(@RequestBody List<Product> products){
-//        return productService.saveAllProducts(products);
-//    }
-
 
 //API for finding all products
     @GetMapping
