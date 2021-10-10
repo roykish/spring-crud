@@ -22,9 +22,9 @@ public class CustomerAccountCreationService {
         return customerRepository.findAll();
     }
 
-//    public Customer showCustomerByName(String name){
-//        return customerRepository.findCustomerByName(name);
-//    }
+    public Customer getCustomerByName(String name){
+        return customerRepository.findByCustomerName(name);
+    }
 
     public Optional<Customer> viewCustomerById(int id) {
         return customerRepository.findById(id);

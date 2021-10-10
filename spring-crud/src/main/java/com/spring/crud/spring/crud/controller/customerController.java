@@ -25,10 +25,10 @@ public class customerController {
         return customerAccountCreationService.viewCustomers();
     }
 
-//    @GetMapping("searchByCustomerName/{name}")
-//    public Customer displayCustomerByName(@PathVariable String name){
-//        return customerAccountCreationService.showCustomerByName(name);
-//    }
+    @GetMapping("searchByCustomerName/{name}")
+    public Customer displayCustomerByName(@PathVariable String name){
+        return customerAccountCreationService.getCustomerByName(name);
+    }
     @GetMapping("/customerId/{id}")
     public Optional<Customer> displayCustomerById(@PathVariable int id) {
         return customerAccountCreationService.viewCustomerById(id);
