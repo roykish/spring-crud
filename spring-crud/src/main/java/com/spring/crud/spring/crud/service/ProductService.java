@@ -28,6 +28,10 @@ public class ProductService {
     public List<Product> getProducts() {
         return productRepository.findAll();
     }
+    public List<Product> getProductByCategory(String category) {
+        System.out.println("category = " + category);
+        return productRepository.findByProductCategory(category);
+    }
 
     //service to Get a single product by product id
     public Product getProduct(int id) {
@@ -53,7 +57,7 @@ public class ProductService {
     //service to update a product on database
     public Product updateProduct(Product product) {
         //first catch the product by that products id
-        Product existingProduct = productRepository.findById(product.getId()).orElse(null);
+        Product existingProduct = productRepository.findById(product.getProductId()).orElse(null);
 //        as there is no Update() method in JPA, we need to get the new product ,
 //         and then set that to the previously existed product.
         existingProduct.setProductName(product.getProductName());
@@ -62,5 +66,4 @@ public class ProductService {
         //then return the new updated product
         return productRepository.save(existingProduct);
     }
-
 }

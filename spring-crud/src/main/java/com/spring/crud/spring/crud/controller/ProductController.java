@@ -37,6 +37,10 @@ public class ProductController {
     public Product findProductByName(@PathVariable String name) {
         return productService.getProductByName(name);
     }
+    @GetMapping("category/{category}")
+    public List<Product>findProductByCategory(@PathVariable String category){
+        return productService.getProductByCategory(category);
+    }
 
     //API for delete a product by product id
     @DeleteMapping("/{id}")
