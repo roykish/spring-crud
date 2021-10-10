@@ -16,19 +16,19 @@ public class ProductController {
 
     @PostMapping("/add")
     public Product addProduct(@RequestBody Product product) {
-        Product returnProduct =  productService.saveProduct(product);
+        Product returnProduct = productService.saveProduct(product);
         return returnProduct;
     }
 
-//API for finding all products
+    //API for finding all products
     @GetMapping
-    public List<Product> findAllProducts(){
+    public List<Product> findAllProducts() {
         return productService.getProducts();
     }
 
     //API for finding product by id
     @GetMapping("/{id}")
-    public Product findProductById(@PathVariable int id){
+    public Product findProductById(@PathVariable int id) {
         return productService.getProduct(id);
     }
 
@@ -41,13 +41,13 @@ public class ProductController {
     //API for delete a product by product id
     @DeleteMapping("/{id}")
     public String delete(@PathVariable int id) throws Exception {
-         String deleteResutl = productService.deleteProduct(id);
-         return deleteResutl;
+        String deleteResult = productService.deleteProduct(id);
+        return deleteResult;
     }
 
     //API for updating a product
     @PutMapping("/update")
-    public String updateProduct(@RequestBody Product product){
+    public String updateProduct(@RequestBody Product product) {
         productService.updateProduct(product);
         return "Updated a product!!" + product;
     }
