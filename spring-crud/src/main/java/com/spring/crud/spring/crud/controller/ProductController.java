@@ -21,36 +21,36 @@ public class ProductController {
     }
 
     //API for finding all products
-    @GetMapping
+    @GetMapping()
     public List<Product> findAllProducts() {
         return productService.getProducts();
     }
 
     //API for finding product by id
-    @GetMapping("/{id}")
+    @GetMapping("/findProductById/{id}")
     public Product findProductById(@PathVariable int id) {
         return productService.getProduct(id);
     }
 
     //API for finding product by name
-    @GetMapping("findByName/{name}")
+    @GetMapping("/findByName/{name}")
     public Product findProductByName(@PathVariable String name) {
         return productService.getProductByName(name);
     }
-    @GetMapping("category/{category}")
+    @GetMapping("/category/{category}")
     public List<Product>findProductByCategory(@PathVariable String category){
         return productService.getProductByCategory(category);
     }
 
     //API for delete a product by product id
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/deleteProduct/{id}")
     public String delete(@PathVariable int id) throws Exception {
         String deleteResult = productService.deleteProduct(id);
         return deleteResult;
     }
 
     //API for updating a product
-    @PutMapping("/update")
+    @PutMapping("/updateProduct")
     public String updateProduct(@RequestBody Product product) {
         productService.updateProduct(product);
         return "Updated a product!!" + product;

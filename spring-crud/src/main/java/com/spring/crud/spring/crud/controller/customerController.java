@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("/customers")
 public class customerController {
     @Autowired
     CustomerAccountCreationService customerAccountCreationService;
@@ -20,16 +20,16 @@ public class customerController {
 
     }
 
-    @GetMapping("/displayAll")
+    @GetMapping()
     public List<Customer> displayAllCustomer() {
         return customerAccountCreationService.viewCustomers();
     }
 
-    @GetMapping("searchByCustomerName/{name}")
+    @GetMapping("/findByCustomerName/{name}")
     public Customer displayCustomerByName(@PathVariable String name){
         return customerAccountCreationService.getCustomerByName(name);
     }
-    @GetMapping("/customerId/{id}")
+    @GetMapping("/findByCustomerId/{id}")
     public Optional<Customer> displayCustomerById(@PathVariable int id) {
         return customerAccountCreationService.viewCustomerById(id);
     }
