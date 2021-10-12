@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -20,4 +21,7 @@ public class Customer {
     private String customerAddress;
     private int customerMobile;
     private String customerEmail;
+    @OneToOne(targetEntity = Product.class,cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "productId_as_fk")
+    private Product product;
 }

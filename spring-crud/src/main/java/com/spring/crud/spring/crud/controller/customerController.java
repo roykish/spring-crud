@@ -44,6 +44,4 @@ public class customerController {
         customerAccountCreationService.updateCustomer(customer);
         return "Updated a Customer";
     }
-
-
 }

@@ -20,5 +20,6 @@ public class Product {
     private String productCategory;
     private int productQuantity;
     private double productPrice;
-
+    @OneToOne(targetEntity = Customer.class, mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Customer customer;
 }
